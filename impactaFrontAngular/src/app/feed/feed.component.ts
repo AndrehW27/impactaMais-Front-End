@@ -71,6 +71,8 @@ export class FeedComponent implements OnInit {
     }
   }
 
+  // TESTE
+
 
   findAllTemas() {
     this.temaService.getAllTemas().subscribe((resp: Tema[]) => {
