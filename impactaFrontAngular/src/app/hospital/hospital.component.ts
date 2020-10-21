@@ -3,6 +3,7 @@ import { Hospital } from '../model/hospital';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HospitalService } from '../service/hospital.service';
 import { AlertasService } from '../service/alertas.service';
+import { getAllStates, getAllCities, getStateCities } from "easy-location-br";
 
 
 @Component({
@@ -12,8 +13,16 @@ import { AlertasService } from '../service/alertas.service';
 })
 export class HospitalComponent implements OnInit {
 
+  estados = []
+  estadoSelecao: string
+  cidades = []
+
+ 
+
   hospital: Hospital = new Hospital()
   listaHospitais: Hospital[]
+  cidade: string
+  nome: string
 
   constructor(
     private hospitalService: HospitalService,
@@ -26,11 +35,20 @@ export class HospitalComponent implements OnInit {
     window.scroll(0, 0)
 
     this.findAllHospitals()
+
+    this.estados = getAllStates()
   }
 
   findAllHospitals() {
     this.hospitalService.getAllHospitals().subscribe((resp: Hospital[]) => {
       this.listaHospitais = resp
+    })
+  }
+
+  findAllHospitalsBotao() {
+    this.hospitalService.getAllHospitals().subscribe((resp: Hospital[]) => {
+      this.listaHospitais = resp
+      window.scroll(0, 450)
     })
   }
 
@@ -54,6 +72,41 @@ export class HospitalComponent implements OnInit {
       })
     }
   }
+
+  findByCidadeHospital(){
+    if (this.cidade === '') {
+      this.findAllHospitals()   
+      this.alert.showAlertInfo('Cidade não encontrada, veja a lista de todos os hospitais') 
+      window.scroll(0, 900)    
+    } else {
+      this.hospitalService.getByCidadeHospital(this.cidade).subscribe((resp: Hospital[]) => {
+        this.listaHospitais = resp
+        window.scroll(0, 900)
+      })
+    }  
+  }
+
+  findByNomeHospital(){
+    if (this.nome === '') {
+      this.findAllHospitals() 
+      this.alert.showAlertInfo('Hospital não encontrado, veja a lista de todos os hospitais') 
+      window.scroll(0, 900)   
+    } else {
+      this.hospitalService.getByNomeHospital(this.nome).subscribe((resp: Hospital[]) => {
+        this.listaHospitais = resp
+        window.scroll(0, 900)
+      })
+    }  
+  }
+
+
+
+
+  estadoSelecionado(event:any) {
+    this.estadoSelecao=event.target.value
+    this.cidades = getStateCities(this.estadoSelecao)
+  }
+
 
 
 }

@@ -18,16 +18,16 @@
            
                 <div>
                     <h3 class="text-center">Login</h3>
-                    <div class="form-group">
+                    <div class="form-group" >
                         <label for="exampleInputEmail1">Endereço de email</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" [(ngModel)]='userLogin.email'>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Senha</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" [(ngModel)]='userLogin.senha'>
+                        <input type="password" class="form-control" id="exampleInputPassword1" (keypress)="entrarEnter($event)" placeholder="Senha" [(ngModel)]='userLogin.senha'>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-outline-secondary w-25 botao-login" (click)='entrar()'>Entrar</button>
+                        <button type="submit" class="btn btn-outline-secondary w-25 botao-login" (keypress)="entrarEnter($event)"   (click)='entrar()'>Entrar</button>
                     </div>
                 </div>
          

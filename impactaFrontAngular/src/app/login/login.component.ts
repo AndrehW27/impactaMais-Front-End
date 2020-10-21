@@ -22,6 +22,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+
+
+
+
   entrar() {
     this.authService.logar(this.userLogin).subscribe((resp: UserLogin) => {
       this.userLogin = resp
@@ -34,6 +38,14 @@ export class LoginComponent implements OnInit {
 
     })
   }
+
+
+
+
+  entrarEnter(event:any){
+    if(event.keyCode === 13)
+      {this.entrar();}
+    }
   
 
 

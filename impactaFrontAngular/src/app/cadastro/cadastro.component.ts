@@ -13,6 +13,7 @@ export class CadastroComponent implements OnInit {
 
   usuario: Usuario = new Usuario();
   senha: string;
+  // email: string
 
   constructor(
     private authService: AuthService,
@@ -21,6 +22,8 @@ export class CadastroComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    // this.validaEmail()
   }
 
   conferirSenha(event: any) {
@@ -38,5 +41,29 @@ export class CadastroComponent implements OnInit {
       this.alert.showAlertDanger('As senhas não conferem')
     }
   }
+
+
+// validaEmail(){
+//   // let txtEmail = (<HTMLSelectElement>document.getElementById('txtEmail')).value;
+
+//   if (this.email.indexOf('@') == -1){
+        
+//     let txtEmail = document.getElementById("txtEmail");
+
+//     txtEmail.textContent = 'ola'
+
+
+//   }
+// }
+
+
+entrarEnter(event:any){
+  if(event.keyCode === 13)
+    {this.cadastrar();}
+  }
+
+
+
+
 
 }

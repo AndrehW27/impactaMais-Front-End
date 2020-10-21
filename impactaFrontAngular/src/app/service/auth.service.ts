@@ -14,9 +14,12 @@ export class AuthService {
 
   logar(userLogin: UserLogin) {
     return this.http.post('http://localhost:8080/usuarios/logar', userLogin)
+      // return this.http.post('https://impacta-mais.herokuapp.com/usuarios/logar', userLogin)
+
   }
   cadastrar(usuario: Usuario) {
     return this.http.post('http://localhost:8080/usuarios/cadastrar', usuario)
+      // return this.http.post('https://impacta-mais.herokuapp.com/usuarios/cadastrar', usuario)
   }
 
   btnSair() {
