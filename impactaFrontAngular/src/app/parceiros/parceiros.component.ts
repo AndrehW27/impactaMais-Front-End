@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertasService } from '../service/alertas.service';
 
 @Component({
   selector: 'app-parceiros',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParceirosComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private alert: AlertasService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+
+  resgatar(){
+    this.alert.showAlertSuccess("Pontos resgatados com sucesso!")
+    
   }
 
 }

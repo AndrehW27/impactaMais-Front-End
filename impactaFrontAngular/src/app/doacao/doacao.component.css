@@ -77,3 +77,15 @@ hr{
     text-decoration: none;
 
 }
+
+
+.botao-pesquisar{
+    border: 1px solid var(--primary-red);
+    background-color: white;
+    color: var(--primary-red);
+}
+
+.botao-pesquisar:hover{
+    background-color: var(--primary-red);
+    color: white;
+}

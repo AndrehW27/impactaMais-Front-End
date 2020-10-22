@@ -16,7 +16,7 @@ hr{
     max-width: 150px;
     overflow-x: hidden;
 }
-
+/* 
 .editar{
     color: var(--primary-green);
     transition: ease 300ms;
@@ -35,7 +35,7 @@ hr{
 .apagar:hover{
     opacity: 0.8;
     text-decoration: underline;
-}
+} */
 
 .botao-pesquisar{
     border: 1px solid var(--primary-red);
@@ -46,4 +46,47 @@ hr{
 .botao-pesquisar:hover{
     background-color: var(--primary-red);
     color: white;
+}
+
+
+
+
+
+
+
+.editar-icon, .apagar-icon {
+    width: 25px;
+    height: 25px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0px 12px ;
+}
+
+#editou{
+    background-image: url('../../assets/icons/pencil.png');
+}
+
+#editou:hover{
+    cursor: pointer;
+    opacity: 0.9;
+}
+#editou:hover{
+    background-image: url('../../assets/icons/pencil-green.png');
+}
+
+
+
+
+#apagou{
+    background-image: url('../../assets/icons/trash.png');
+}
+
+#apagou:hover{
+    cursor: pointer;
+    opacity: 0.8;    
+}
+
+#apagou:hover{
+    background-image: url('../../assets/icons/trash-red.png');
 }

@@ -38,9 +38,9 @@
 
           <div class="form-group">
             <label class="" for="texto">Texto:</label>
-            <textarea class="form-control" id="texto" rows="3" placeholder="Digite aqui o seu texto"            
+            <textarea class="form-control" id="texto" rows="3" placeholder="Digite aqui o seu texto"
               [(ngModel)]='postagem.text_box'>
-              
+
 
             </textarea>
             <small>Insira pelo menos 10 caracteres.</small>
@@ -62,27 +62,27 @@
 
                 <div class="container-fluid w-100 ">
 
-                 <div class="row mb-3">
-                  <div class="col-md-6">
-                    <div class="row text-center d-flex justify-content-center align-items-center">
-                      <div class="col-md-6 text-center">
-                        <label class="mt-3" for="tema">Escolha um Estado</label>
-                        <select id="estado" name="Estado" class="form-control" (change)="estadoSelecionado($event)">
-                          <option *ngFor="let item of estados" value={{item.id}}>{{item.name}}</option>
-                        </select>
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <div class="row  d-flex justify-content-center align-items-center">
+                        <div class="col-md-12 ">
+                          <label class="mt-3" for="tema">Escolha um Estado</label>
+                          <select id="estado" name="Estado" class="form-control" (change)="estadoSelecionado($event)">
+                            <option *ngFor="let item of estados" value={{item.id}}>{{item.name}}</option>
+                          </select>
+                        </div>
+                      </div>
+
+
+                      <div class="row  d-flex justify-content-center align-items-center">
+                        <div class="col-md-12 ">
+                          <label class="mt-3" for="tema">Escolha uma Cidade</label>
+                          <select id="cidade" name="Cidade" class="form-control" [(ngModel)]='postagem.cidade'>
+                            <option *ngFor="let item of cidades" value={{item.name}}>{{item.name}}</option>
+                          </select>
+                        </div>
                       </div>
                     </div>
-          
-          
-                    <div class="row text-center d-flex justify-content-center align-items-center">
-                      <div class="col-md-6 text-center">
-                        <label class="mt-3" for="tema">Escolha uma Cidade</label>
-                        <select id="cidade" name="Cidade" class="form-control" [(ngModel)]='postagem.cidade'>
-                          <option *ngFor="let item of cidades" value={{item.name}}>{{item.name}}</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
 
                     <!-- <div class="col-md-6">
                       <div class="form-group mt-3 ">
@@ -92,16 +92,16 @@
                       </div>
                     </div> -->
 
-              
 
-                  <div class="col-md-6">
-                    <div class="form-group mt-3 ">
-                      <label class="text" for="hospital">Hospital:</label>
-                      <input type="text" class="form-control" id="hospital" placeholder="Digite aqui seu hospital"
-                        [(ngModel)]='postagem.nome_hospital'>
+
+                    <div class="col-md-6">
+                      <div class="form-group mt-3 ">
+                        <label class="text" for="hospital">Hospital:</label>
+                        <input type="text" class="form-control" id="hospital" placeholder="Digite aqui seu hospital"
+                          [(ngModel)]='postagem.nome_hospital'>
+                      </div>
                     </div>
                   </div>
-                </div>
 
 
                 </div>
@@ -205,7 +205,7 @@
           </div>
 
           <div class="text-center">
-            <button class="btn text-white w-25 mt-4 mx-2 " style="background-color: var(--primary-red);"
+            <button class="btn text-white w-50 mt-4 mx-2 " style="background-color: var(--primary-red);"
               (click)='findAllPostagens()'>Ver todas as postagens</button>
           </div>
 
@@ -218,7 +218,7 @@
               <div class="card mt-5" *ngFor='let item of listaPostagens | orderBy: key : reverse'>
                 <div class="card-header">
                   <div class="row d-flex align-items-center 	">
-                    <div class="col-md-12 ">
+                    <div class="col-md-10 ">
 
                       <h5 class="card-title"> {{item.titulo}} </h5>
 
@@ -227,6 +227,25 @@
                       <small class="mx-3">{{item.nome_hospital}}</small>
 
                       <small class="mx-3"> <span style="color: var(--primary-red);">{{item.sangue}}</span> </small>
+
+
+                    </div>
+                    <div class="col-md-2 ">
+
+
+                      <div class=" px-0 d-flex justify-content-end align-items-center mt-3 mb-2">
+
+                        <div class="a-out-icon">
+                          <div id="editou" class="editar-icon " [routerLink]="['/editar-post', item.id]"></div>
+                        </div>
+  
+                        <div class="a-out-icon">
+                          <div id="apagou" class="apagar-icon" [routerLink]="['/delete-post', item.id]"></div>
+                        </div>
+
+  
+                      </div>
+
                     </div>
 
 
@@ -248,20 +267,17 @@
 
                   <!-- ICONES -->
                   <div class="col-5 px-0 d-flex justify-content-start align-items-center mt-3 mb-2">
-                    
+
                     <div class="a-out-icon">
-                    
                       <div id="impacto" class="impacto ml-2"></div>
                       <small class="text-dark impactou-texto">impactar</small>
-                  </div>
-
+                    </div>
 
                     <div class="a-out-icon">
-                     
                       <div id="coracao" class="coracao ml-3"></div>
                       <small class="ml-3 text-dark apoiou-texto">apoiar</small>
                     </div>
-                    
+
                   </div>
                   <!-- / ICONES -->
 
@@ -273,21 +289,19 @@
                     class="form-text m-0 text-muted mb-3 d-flex justify-content-between align-items-center">
                     Postado em {{item.data_post | date: 'dd/MM/yyyy '}} às {{item.data_post | date: 'HH:mm'}}
 
-                    <div>
+                    <!-- <div class="col-5 px-0 d-flex justify-content-end align-items-center mt-3 mb-2">
 
-                      <button class=" editar mr-3 btn " [routerLink]="['/editar-post', item.id]">
-                        editar
-                      </button>
+                      <div class="a-out-icon">
+                        <div id="editou" class="editar-icon ml-2" [routerLink]="['/editar-post', item.id]"></div>
+                      </div>
 
-                      <button class="apagar mr-3 btn  ml-3" [routerLink]="['/delete-post', item.id]">
-                        apagar
-                      </button>
+                      <div class="a-out-icon">
+                        <div id="apagou" class="apagar-icon ml-3" [routerLink]="['/delete-post', item.id]"></div>
+                      </div>
 
-                    </div>
+                    </div> -->  
 
                   </small>
-
-
                 </div>
 
               </div>
@@ -323,36 +337,63 @@
                 <div class="card mt-5 mb-5">
                   <div class="card-header">
                     <div class="row d-flex align-items-center">
-                      <div class="col-md-12">
+
+                      <div class="col-md-10">
+
                         <h5 class="card-title">{{post.titulo}}</h5>
                         <!-- <small class="mr-3">{{item.tema.descricao}}</small> -->
                         <small class="mx-3">{{post.cidade}}</small>
                         <small class="mx-3">{{post.nome_hospital}}</small>
-                        <small class="mx-3"> <span style="color: var(--primary-red);">{{post.sangue}}</span> </small>
+                        <small class="mx-3"> <span style="color: var(--primary-red); ">{{post.sangue}}</span> </small>
+
                       </div>
+
+                      <div class="col-md-2 ">
+
+
+                        <div class=" px-0 d-flex justify-content-end align-items-center mt-3 mb-2">
+  
+                          <div class="a-out-icon">
+                            <div id="editou" class="editar-icon " [routerLink]="['/editar-post', item.id]"></div>
+                          </div>
+    
+                          <div class="a-out-icon">
+                            <div id="apagou" class="apagar-icon" [routerLink]="['/delete-post', item.id]"></div>
+                          </div>
+  
+    
+                        </div>
+  
+                      </div>
+
+
+
+
+
+
                     </div>
                   </div>
                   <div class="card-body">
-                   
+
                     <div class="imagem"><img class="imagem" src="{{post.imagem}}" alt=""></div>
 
 
                     <!-- ICONES -->
                     <div class="col-5 px-0 d-flex justify-content-start align-items-center mt-3 b-2">
-                      
+
                       <div class="a-out-icon">
-                      
+
                         <div id="impacto" class="impacto ml-2"></div>
                         <small class="text-dark impactou-texto">impactar</small>
-                    </div>
-  
-  
+                      </div>
+
+
                       <div class="a-out-icon">
-                       
+
                         <div id="coracao" class="coracao ml-3"></div>
                         <small class="ml-3 text-dark apoiou-texto">apoiar</small>
                       </div>
-                      
+
                     </div>
                     <!-- / ICONES -->
 
@@ -362,22 +403,12 @@
 
                     <p class="card-text" aria-describedby="texto">{{post.text_box}}</p>
 
-                    <small id="texto" 
-                    class="form-text m-0 text-muted mb-3 d-flex justify-content-between align-items-center">
-                    Postado em:{{post.data_post | date: 'dd/MM/yyyy'}} às {{post.data_post | date: 'HH:mm'}}
+                    <small id="texto"
+                      class="form-text m-0 text-muted mb-3 d-flex justify-content-between align-items-center">
+                      Postado em:{{post.data_post | date: 'dd/MM/yyyy'}} às {{post.data_post | date: 'HH:mm'}}
 
 
-                      <div>
 
-                        <button class=" editar mr-3 btn " [routerLink]="['/editar-post', item.id]">
-                          editar
-                        </button>
-  
-                        <button class="apagar mr-3 btn  ml-3" [routerLink]="['/delete-post', item.id]">
-                          apagar
-                        </button>
-  
-                      </div>
 
                     </small>
 

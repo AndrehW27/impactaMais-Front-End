@@ -62,7 +62,13 @@ entrarEnter(event:any){
     {this.cadastrar();}
   }
 
+teste(){
 
+let txt = document.querySelector('#txtEmail')
+
+
+
+}
 
 
 
