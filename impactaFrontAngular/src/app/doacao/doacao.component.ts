@@ -35,7 +35,7 @@ export class DoacaoComponent implements OnInit {
     private alert: AlertasService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     window.scroll(0, 0)
 
     this.findAllPostagens()

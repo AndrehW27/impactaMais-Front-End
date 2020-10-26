@@ -55,11 +55,47 @@
           </div>
 
 
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label class="" for="texto">Cidade:</label>
             <input class="form-control" id="texto" rows="3" placeholder="Digite aqui a cidade do hospital"
               [(ngModel)]='hospital.cidade'>
           </div>
+ -->
+
+
+
+          <!-- DROP CIDADE -->
+
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <div class="row  d-flex justify-content-center align-items-center">
+                <div class="col-md-12 ">
+                  <label class="mt-3" for="tema">Escolha um Estado</label>
+                  <select id="estado" name="Estado" class="form-control" (change)="estadoSelecionado($event)">
+                    <option *ngFor="let item of estados" value={{item.id}}>{{item.name}}</option>
+                  </select>
+                </div>
+              </div>
+
+
+              <div class="row  d-flex justify-content-center align-items-center">
+                <div class="col-md-12 ">
+                  <label class="mt-3" for="tema">Escolha uma Cidade</label>
+                  <select id="cidade" name="Cidade" class="form-control" [(ngModel)]='hospital.cidade'>
+                    <option *ngFor="let item of cidades" value={{item.name}}>{{item.name}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- / DROP CIDADE -->
+
+
+
+
 
 
           <div class="form-group">
@@ -112,42 +148,43 @@
   <div class="card card-body mb-3 ">
 
 
-          <div class="row text-center d-flex justify-content-center align-items-center">
-            <div class="col-md-6 text-center">
-              <label class="mt-3" for="tema">Escolha um Estado</label>
-              <select id="estado" name="Estado" class="form-control" (change)="estadoSelecionado($event)">
-                <option *ngFor="let item of estados" value={{item.id}}>{{item.name}}</option>
-              </select>
-            </div>
-          </div>
-
-
-          <div class="row text-center d-flex justify-content-center align-items-center">
-            <div class="col-md-6 text-center">
-              <label class="mt-3" for="tema">Escolha uma Cidade</label>
-              <select id="cidade" name="Cidade" class="form-control" [(ngModel)]='cidade'>
-                <option *ngFor="let item of cidades" value={{item.name}}>{{item.name}}</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="row text-center d-flex justify-content-center align-items-center">
-            <button class="btn botao-pesquisar w-25 mt-4 mx-2 text-center" (click)='findByCidadeHospital()'>Buscar por
-              cidade</button>
-          </div>
-
+    <div class="row text-center d-flex justify-content-center align-items-center">
+      <div class="col-md-3 text-center">
+        <label class="mt-3" for="tema">Escolha um Estado</label>
+        <select id="estado" name="Estado" class="form-control" (change)="estadoSelecionado($event)">
+          <option *ngFor="let item of estados" value={{item.id}}>{{item.name}}</option>
+        </select>
+      </div>
     </div>
+
+
+
+    <div class="row text-center d-flex justify-content-center align-items-center">
+      <div class="col-md-3 text-center">
+        <label class="mt-3" for="tema">Escolha uma Cidade</label>
+        <select id="cidade" name="Cidade" class="form-control" [(ngModel)]='cidade'>
+          <option *ngFor="let item of cidades" value={{item.name}}>{{item.name}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row text-center d-flex justify-content-center align-items-center">
+      <button class="btn botao-pesquisar w-25 mt-4 mx-2 text-center" (click)='findByCidadeHospital()'>Buscar por
+        cidade</button>
+    </div>
+
   </div>
+</div>
 
-  <!-- COLLAPSE CIDADE -->
+<!-- COLLAPSE CIDADE -->
 
 
 
 
-  
+
 <!-- COLLAPSE NOME -->
 
-<p class="text-center">
+<!-- <p class="text-center">
   <a class="btn text-white w-25" style="background-color: var(--primary-red);display: inline-block;"
     data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false"
     aria-controls="collapseExample ">
@@ -170,7 +207,7 @@
 
 
   </div>
-</div>
+</div> -->
 
 <!-- COLLAPSE NOME -->
 
@@ -178,22 +215,22 @@
 
 
 
-  <!-- CONTAINER 2 -->
+<!-- CONTAINER 2 -->
 
-  <div class="jumbotron jumbotron-fluid  mb-0 py-4 ">
-    <div class="container">
-      <h3 class=" text-center my-3">Lista de hospitais</h3>
-      <p style="font-size: 16px;" class="lead">Encontre na lista abaixo os hospitais/pontos de doação de sangue mais
-        próximos da sua localização através do link do Google Maps. Os locais com a classificação "ativo" estão
-        recebendo
-        doações, e os locais "em análise" estão sendo verificados por nossa equipe</p>
-    </div>
+<div class="jumbotron jumbotron-fluid  mb-0 py-4 ">
+  <div class="container">
+    <h3 class=" text-center my-3">Lista de hospitais</h3>
+    <p style="font-size: 16px;" class="lead">Encontre na lista abaixo os hospitais/pontos de doação de sangue mais
+      próximos da sua localização através do link do Google Maps. Os locais com a classificação "ativo" estão
+      recebendo
+      doações, e os locais "em análise" estão sendo verificados por nossa equipe</p>
   </div>
+</div>
 
 
 
 
-  
+
 <div class="row mb-4 mt-4 ">
   <div class="col-md-12 d-flex justify-content-center">
 
@@ -207,53 +244,53 @@
 
 
 
-  <div class="container  mb-5 ">
-    <div class="row d-flex justify-content-center align-items-center  mb-5">
-      <div class="col-md-12 mb-5">
+<div class="container  mb-5 ">
+  <div class="row d-flex justify-content-center align-items-center  mb-5">
+    <div class="col-md-12 mb-5">
 
 
 
 
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Hospital</th>
-              <th scope="col">Cidade</th>
-              <th scope="col">Endereço</th>
-              <th scope="col">Google Maps</th>
-              <th scope="col">Status</th>
-              <th scope="col">Alterações</th>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Hospital</th>
+            <th scope="col">Cidade</th>
+            <th scope="col">Endereço</th>
+            <th scope="col">Google Maps</th>
+            <th scope="col">Status</th>
+            <!-- <th scope="col">Alterações</th> -->
 
 
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor='let item of listaHospitais tr-css'>
-              <th scope="row">{{item.id}}</th>
-              <td class="td"> {{item.nome}}</td>
-              <td class="td">{{item.cidade}}</td>
-              <td class="td">{{item.endereco}}</td>
-              <td class="td"><a href="{{item.link}}" target="_blank" rel="noopener noreferrer">Link Google Maps</a></td>
-              <td class="td">Em análise</td>
-              <td class="d-flex justify-content-center">
-                <!-- <a class="btn btn-outline-info mr-3" [routerLink]="['/editar-hospital', item.id]">Editar</a>
-              <a class="btn btn-outline-danger" [routerLink]="['/delete-hospital', item.id]">Apagar</a> -->              
-             
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let item of listaHospitais tr-css'>
+            <th scope="row">{{item.id}}</th>
+            <td class="td"> {{item.nome}}</td>
+            <td class="td">{{item.cidade}}</td>
+            <td class="td">{{item.endereco}}</td>
+            <td class="td"><a href="{{item.link}}" target="_blank" rel="noopener noreferrer">Link Google Maps</a></td>
+            <td class="td">Em análise</td>
+            <td class="d-flex justify-content-center">
+              <!-- <a class="btn btn-outline-info mr-3" [routerLink]="['/editar-hospital', item.id]">Editar</a>
+              <a class="btn btn-outline-danger" [routerLink]="['/delete-hospital', item.id]">Apagar</a> -->
 
-                <div class=" px-0 d-flex justify-content-center align-items-center mt-3 mb-2">
-                  <div class="a-out-icon">
-                    <div id="editou" class="editar-icon " [routerLink]="['/editar-hospital', item.id]"></div>
-                  </div>
 
-                  <div class="a-out-icon">
-                    <div id="apagou" class="apagar-icon" [routerLink]="['/delete-hospital', item.id]"></div>
-                  </div>
+              <div class=" px-0 d-flex justify-content-center align-items-center mt-3 mb-2">
+                <div class="a-out-icon">
+                  <div id="editou" class="editar-icon " [routerLink]="['/editar-hospital', item.id]"></div>
                 </div>
 
-         
+                <div class="a-out-icon">
+                  <div id="apagou" class="apagar-icon" [routerLink]="['/delete-hospital', item.id]"></div>
+                </div>
+              </div>
 
-                <!-- <div>
+
+
+              <!-- <div>
 
                   <button class=" editar mr-3 btn " [routerLink]="['/editar-hospital', item.id]">
                     editar
@@ -266,21 +303,21 @@
                 </div> -->
 
 
-              </td>
+            </td>
 
-            </tr>
+          </tr>
 
-          </tbody>
-        </table>
+        </tbody>
+      </table>
 
 
-      </div>
     </div>
   </div>
+</div>
 
-  <!-- CONTAINER 2 -->
+<!-- CONTAINER 2 -->
 
 
-  <!--footer vermelho-->
-  <app-footer-sangue></app-footer-sangue>
-  <!--/footer vermelho-->
+<!--footer vermelho-->
+<app-footer-sangue></app-footer-sangue>
+<!--/footer vermelho-->

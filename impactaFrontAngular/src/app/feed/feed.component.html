@@ -198,8 +198,8 @@
 
 
             </div>
-            <div class="col-md-2 pl-0">
-              <button class="btn botao-pesquisar w-100" type="button"
+            <div class="col-md-2 pl-0 botao-flex">
+              <button class="btn botao-pesquisar " type="button"
                 (click)='findByTituloPostagem()'>Pesquisar</button>
             </div>
           </div>
@@ -262,7 +262,7 @@
 
 
                 <div class="card-body ">
-                  <div class="imagem"><img class="imagem" src="{{item.imagem}}" alt=""></div>
+                <img class="imagem" src="{{item.imagem}}" alt="">
 
 
                   <!-- ICONES -->
@@ -326,10 +326,16 @@
               <input class="form-control w-100" type="search" placeholder="Pesquisar postagem" aria-label="Pesquisar"
                 [(ngModel)]='nomeTema'>
             </div>
-            <div class="col-md-2 pl-0">
-              <button class="btn botao-pesquisar w-100" type="button" (click)='findByNomeTema()'>Pesquisar</button>
+            <div class="col-md-2 pl-0  botao-flex">
+              <button class="btn botao-pesquisar " type="button" (click)='findByNomeTema()'>Pesquisar</button>
             </div>
           </div>
+
+          <div class="text-center">
+            <button class="btn text-white w-50 mt-4 mx-2 " style="background-color: var(--primary-red);"
+              (click)='findAllTemas()'>Ver todas as postagens</button>
+          </div>
+
 
           <div class="row">
             <div class="col-md-12" *ngFor='let item of listaTemas | orderBy: key : reverse'>

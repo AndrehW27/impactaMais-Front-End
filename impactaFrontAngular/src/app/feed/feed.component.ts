@@ -51,13 +51,15 @@ export class FeedComponent implements OnInit {
   findAllPostagens() {
     this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
       this.listaPostagens = resp
-    }, err => {
-      if (err.status == '500' || err.status == '400' || err.status == '402') {
-        this.alert.showAlertDanger("Preencha todos os campos corretamente para prosseguir!")
-      }
-
     })
   }
+  //   }, err => {
+  //     if (err.status == '500' || err.status == '400' || err.status == '402') {
+  //       this.alert.showAlertDanger("Preencha todos os campos corretamente para prosseguir!")
+  //     }
+
+  //   })
+  // }
 
   publicar() {
 
@@ -72,6 +74,7 @@ export class FeedComponent implements OnInit {
         this.postagem = resp
         this.postagem = new Postagem()
         this.alert.showAlertSuccess('Postagem realizada com sucesso!')
+        // this.findAllTemas()
         this.findAllPostagens()
         window.scroll(0, 725)
       })

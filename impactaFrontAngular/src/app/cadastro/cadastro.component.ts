@@ -11,6 +11,9 @@ import { AuthService } from '../service/auth.service';
 })
 export class CadastroComponent implements OnInit {
 
+
+  // hide = true;
+
   usuario: Usuario = new Usuario();
   senha: string;
   // email: string
@@ -62,13 +65,13 @@ entrarEnter(event:any){
     {this.cadastrar();}
   }
 
-teste(){
+// teste(){
 
-let txt = document.querySelector('#txtEmail')
+// let txt = document.querySelector('#txtEmail')
 
 
 
-}
+// }
 
 
 

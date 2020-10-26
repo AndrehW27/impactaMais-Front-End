@@ -17,7 +17,7 @@ export class ParceirosComponent implements OnInit {
 
 
   resgatar(){
-    this.alert.showAlertSuccess("Pontos resgatados com sucesso!")
+    this.alert.showAlertSuccess("Seu resgaste de pontos foi enviado para o seu email!")
     
   }
 

@@ -14,7 +14,7 @@ export class NavbarSangueComponent implements OnInit {
     public auth: AuthService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
     window.scroll(0,0)
   }
 

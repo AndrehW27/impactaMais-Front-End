@@ -5,6 +5,7 @@ import { Tema } from '../model/Tema';
 import { AlertasService } from '../service/alertas.service';
 import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
+import { getAllStates, getAllCities, getStateCities } from "easy-location-br"
 
 @Component({
   selector: 'app-put-postagem',
@@ -13,6 +14,11 @@ import { TemaService } from '../service/tema.service';
 })
 export class PutPostagemComponent implements OnInit {
 
+  estados = []
+  estadoSelecao: string
+  cidades = []
+
+  
   postagem: Postagem = new Postagem()
   tema: Tema = new Tema()
   listaTemas: Tema[]
@@ -32,6 +38,8 @@ export class PutPostagemComponent implements OnInit {
     this.idPost = this.route.snapshot.params["id"]
     this.findAllTemas()
     this.findByIdPostagem(this.idPost)
+
+    this.estados = getAllStates()
   }
 
   
@@ -65,6 +73,12 @@ export class PutPostagemComponent implements OnInit {
 
   btnCancelar(){
     this.router.navigate(['/feed'])
+  }
+
+
+  estadoSelecionado(event:any) {
+    this.estadoSelecao=event.target.value
+    this.cidades = getStateCities(this.estadoSelecao)
   }
   
 }

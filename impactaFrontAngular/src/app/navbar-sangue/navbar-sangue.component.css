@@ -89,3 +89,15 @@
     padding: 0px 12px;
     
 }
+
+
+@media (max-width:770px) {
+    .botao-login a, .botao-cadastrar a{
+        color: #000
+    }
+    
+    .nav-link{
+        color: #000
+    }
+}
+

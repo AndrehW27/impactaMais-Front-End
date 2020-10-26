@@ -28,6 +28,12 @@ import { FooterSangueComponent } from './footer-sangue/footer-sangue.component';
 import { ParceirosComponent } from './parceiros/parceiros.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { PutPerfilComponent } from './put-perfil/put-perfil.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+
+
 
 @NgModule({
   declarations: [
@@ -60,7 +66,10 @@ import { PutPerfilComponent } from './put-perfil/put-perfil.component';
     HttpClientModule,
     FormsModule, 
     OrderModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

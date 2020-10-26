@@ -123,6 +123,7 @@
     border: 1px solid var(--primary-red);
     background-color: white;
     color: var(--primary-red);
+    min-width: 150px;
 }
 
 .botao-pesquisar:hover{
@@ -168,4 +169,23 @@
 
 #apagou:hover{
     background-image: url('../../assets/icons/trash-red.png');
+}
+
+
+
+
+
+@media (max-width:770px) {
+
+    .botao-pesquisar{
+        width: 40px ;
+    }
+    .botao-flex{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-right: 0px;
+        margin-top: 12px;
+    }
+
 }
